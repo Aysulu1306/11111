@@ -13,8 +13,8 @@ bot.command('timetable', async (ctx) => {
         await ctx.replyWithHTML('<b>Выберите группу:</b>', Markup.inlineKeyboard(
             [
                 [Markup.button.callback('КИ', 'btn_KI'), 
-            Markup.button.callback('АТ Сервис', 'btn_ATS'),
-            Markup.button.callback('ДИ', 'btn_DI')],
+            Markup.button.callback('ИТ Сервис', 'btn_ATS'),
+            Markup.button.callback('ПИ', 'btn_DI')],
             ]
         ))
         

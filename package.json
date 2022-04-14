@@ -1,0 +1,26 @@
+{
+  "name": "11111",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aysulu1306/11111.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aysulu1306/11111/issues"
+  },
+  "homepage": "https://github.com/Aysulu1306/11111#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "node-cron": "^3.0.0",
+    "telegraf": "^4.7.0"
+  }
+}

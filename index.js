@@ -64,10 +64,10 @@ function addActionBot(name, src, text){
     })
 }
 addActionBot('KI_1', './img/KI_1.jpg', text.textKI1)
-addActionBot('KI_2', text.textKI2)
-addActionBot('KI_3', text.textKI3)
-addActionBot('KI_4', text.textKI4)
-addActionBot('KI_5', text.textKI5)
+addActionBot('KI_2', './img/KI_1.jpg', text.textKI2)
+addActionBot('KI_3', './img/KI_1.jpg', text.textKI3)
+addActionBot('KI_4', './img/KI_1.jpg', text.textKI4)
+addActionBot('KI_5', './img/KI_1.jpg', text.textKI5)
 
 
 bot.launch()

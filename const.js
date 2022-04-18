@@ -99,7 +99,7 @@ const textKI5 = `1-пара
 🕑 15:00 - 16:20
 📚 Организация компьютера[Лаб]
 ▸ Ярлашов Р.
-🏢 ауд.22`
+🏢 ауд.22 `
 
 module.exports.commands = commands
 module.exports.textKI1 = textKI1

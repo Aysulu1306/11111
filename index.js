@@ -27,7 +27,7 @@ bot.command('timetable', async (ctx) => {
 
 const cron = require('node-cron');
 
-cron.schedule('13 0/1 * April,May Monday', () => {
+cron.schedule('0 0/11 * April,May Monday', () => {
   bot.telegram.sendMessage(1235647955, "обновление расписании");
   bot.telegram.sendMessage(1250147610, "обновление расписании");
   

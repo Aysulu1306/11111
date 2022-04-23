@@ -27,7 +27,7 @@ bot.command('timetable', async (ctx) => {
 
 const cron = require('node-cron');
 
-cron.schedule('*/10 * * * *', () => {
+cron.schedule('*/1 * * * *', () => {
     bot.telegram.sendMessage(1235647955, "обновление расписании");
     bot.telegram.sendMessage(1250147610, "обновление расписании");
 
@@ -73,6 +73,5 @@ addActionBot('KI_5', './img/KI_1.jpg', text.textKI5)
 bot.launch()
 console.log('бот запущен!')
 
-// Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))

@@ -9,16 +9,16 @@ bot.start((ctx) => ctx.reply(`Привет ${ctx.message.from.first_name ? ctx.m
 bot.help((ctx) => ctx.reply(text.commands))
 
 bot.command('timetable', async (ctx) => {
-    try{
+    try {
         await ctx.replyWithHTML('<b>Выберите группу:</b>', Markup.inlineKeyboard(
             [
-                [Markup.button.callback('КИ', 'btn_KI'), 
-            Markup.button.callback('ИТ Сервис', 'btn_ATS'),
-            Markup.button.callback('ПИ', 'btn_DI')],
+                [Markup.button.callback('КИ', 'btn_KI'),
+                Markup.button.callback('ИТ Сервис', 'btn_ATS'),
+                Markup.button.callback('ПИ', 'btn_DI')],
             ]
         ))
-        
-    }catch(e) {
+
+    } catch (e) {
         console.error(e)
     }
 })
@@ -28,36 +28,36 @@ bot.command('timetable', async (ctx) => {
 const cron = require('node-cron');
 
 cron.schedule('* * * * * *', () => {
-  bot.telegram.sendMessage(1235647955, "обновление расписании");
-  bot.telegram.sendMessage(1250147610, "обновление расписании");
-  
+    bot.telegram.sendMessage(1235647955, "обновление расписании");
+    bot.telegram.sendMessage(1250147610, "обновление расписании");
+
 
 });
 
 
 bot.action('btn_KI', (ctx) => {
-    ctx.reply('Выберите:', 
-     Markup.inlineKeyboard([
-       [Markup.button.callback('Понедельник', 'KI_1')],
-        [Markup.button.callback('Вторник', 'KI_2')],
-        [Markup.button.callback('Среда', 'KI_3')],
-        [Markup.button.callback('Четверг', 'KI_4')],
-        [Markup.button.callback('Пятница', 'KI_5')],
-    ]))
+    ctx.reply('Выберите:',
+        Markup.inlineKeyboard([
+            [Markup.button.callback('Понедельник', 'KI_1')],
+            [Markup.button.callback('Вторник', 'KI_2')],
+            [Markup.button.callback('Среда', 'KI_3')],
+            [Markup.button.callback('Четверг', 'KI_4')],
+            [Markup.button.callback('Пятница', 'KI_5')],
+        ]))
 });
 
-function addActionBot(name, src, text){
-    bot.action(name, async (ctx) =>{
-        try{
+function addActionBot(name, src, text) {
+    bot.action(name, async (ctx) => {
+        try {
             await ctx.answerCbQuery()
-            if(src !== false) {
+            if (src !== false) {
                 await ctx.replyWithPhoto({
                     source: src
                 })
             }
-           await ctx.replyWithHTML(text, {
-                disable_web_page_preview: true 
-            } )
+            await ctx.replyWithHTML(text, {
+                disable_web_page_preview: true
+            })
         } catch (e) {
             console.error(e)
         }

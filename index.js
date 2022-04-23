@@ -1,6 +1,7 @@
 const { Telegraf, Markup } = require('telegraf')
 require('dotenv').config()
 const text = require('./const')
+const mysql = require('mysql');
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
@@ -13,8 +14,8 @@ bot.command('timetable', async (ctx) => {
         await ctx.replyWithHTML('<b>Выберите группу:</b>', Markup.inlineKeyboard(
             [
                 [Markup.button.callback('КИ', 'btn_KI'), 
-            Markup.button.callback('ИТ Сервис', 'btn_ATS'),
-            Markup.button.callback('ПИ', 'btn_DI')],
+            Markup.button.callback('АТ Сервис', 'btn_ATS'),
+            Markup.button.callback('ДИ', 'btn_DI')],
             ]
         ))
         
@@ -27,7 +28,7 @@ bot.command('timetable', async (ctx) => {
 
 const cron = require('node-cron');
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('* * 0/1 * * *', () => {
   bot.telegram.sendMessage(1235647955, "обновление расписании");
   bot.telegram.sendMessage(1250147610, "обновление расписании");
   
@@ -64,10 +65,10 @@ function addActionBot(name, src, text){
     })
 }
 addActionBot('KI_1', './img/KI_1.jpg', text.textKI1)
-addActionBot('KI_2', './img/KI_1.jpg', text.textKI2)
-addActionBot('KI_3', './img/KI_1.jpg', text.textKI3)
-addActionBot('KI_4', './img/KI_1.jpg', text.textKI4)
-addActionBot('KI_5', './img/KI_1.jpg', text.textKI5)
+addActionBot('KI_2', './img/KI_2.jpg',text.textKI2)
+addActionBot('KI_3', './img/KI_3.jpg', text.textKI3)
+addActionBot('KI_4', './img/KI_4.jpg', text.textKI4)
+addActionBot('KI_5', './img/KI_5.jpg', text.textKI5)
 
 
 bot.launch()
